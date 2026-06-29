@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Generator ✦</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="mesh"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="header glass">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      Password Generator ✦
+    </div>
+    <div class="header-sub">Cryptographically secure</div>
+  </header>
+
+  <!-- PASSWORD OUTPUT -->
+  <div class="pass-card glass">
+    <div class="pass-output-wrap">
+      <div class="pass-output" id="pass-output" title="Click to copy">—</div>
+      <button class="copy-btn" id="copy-btn" onclick="copyPass()" title="Copy">⧉</button>
+    </div>
+
+    <!-- STRENGTH -->
+    <div class="strength-row">
+      <div class="strength-bars">
+        <div class="s-bar"></div>
+        <div class="s-bar"></div>
+        <div class="s-bar"></div>
+        <div class="s-bar"></div>
+      </div>
+      <div class="strength-label" id="strength-label" style="color:var(--text-dimmer)">—</div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls-card glass">
+
+    <!-- LENGTH -->
+    <div class="section-label">Password Length</div>
+    <div class="slider-row">
+      <div class="slider-val" id="slider-val">16</div>
+      <input class="slider" id="length-slider" type="range" min="4" max="64" value="16"/>
+    </div>
+
+    <!-- TOGGLES -->
+    <div class="section-label">Character Types</div>
+    <div class="toggles-grid">
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-name">Uppercase</div>
+          <div class="toggle-chars">A – Z</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tog-upper" checked/>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-name">Lowercase</div>
+          <div class="toggle-chars">a – z</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tog-lower" checked/>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-name">Numbers</div>
+          <div class="toggle-chars">0 – 9</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tog-numbers" checked/>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <div class="toggle-name">Symbols</div>
+          <div class="toggle-chars">! @ # $ % …</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="tog-symbols" checked/>
+          <div class="toggle-track"></div>
+          <div class="toggle-thumb"></div>
+        </label>
+      </div>
+
+    </div>
+
+    <!-- EXCLUDE -->
+    <div class="exclude-row">
+      <div class="section-label">Exclude Characters</div>
+      <input class="exclude-inp" id="exclude-inp" type="text" placeholder="e.g.  0 O l I 1  (ambiguous chars)"/>
+    </div>
+
+    <!-- GENERATE -->
+    <button class="gen-btn" onclick="generate()">⟳ &nbsp; Generate New Password</button>
+
+  </div>
+
+  <!-- HISTORY -->
+  <div class="history-card glass" id="history-card">
+    <div class="history-header">
+      <div class="history-title">✦ Copied History</div>
+      <div class="history-clear" onclick="clearHistory()">Clear all</div>
+    </div>
+    <div class="history-list" id="history-list">
+      <div class="history-empty">No passwords copied yet.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
